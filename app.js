@@ -3,6 +3,7 @@ import { renderIngredient } from './utils.js';
 
 const form = document.getElementById('form');
 const ingredientList = document.getElementById('ingredientList');
+const removeButton = document.getElementById('removeButton');
 
 // let state
 let recipeArr = [];
@@ -19,7 +20,6 @@ form.addEventListener('submit', (e) => {
     recipeArr.push(recipe);
     displayIngredients();
     form.reset();
-    console.log(recipeArr);
 });
 
 function displayIngredients() {
@@ -29,3 +29,8 @@ function displayIngredients() {
         ingredientList.append(thing);
     }
 }
+
+removeButton.addEventListener('click', () => {
+    recipeArr.pop();
+    displayIngredients();
+});
