@@ -1,5 +1,8 @@
 // import functions and grab DOM elements
+import { renderIngredient } from './utils.js';
+
 const form = document.getElementById('form');
+const ingredientList = document.getElementById('ingredientList');
 
 // let state
 let recipeArr = [];
@@ -12,8 +15,17 @@ form.addEventListener('submit', (e) => {
     const ingredient = formD.get('ingredient');
     const quantity = formD.get('quantity');
     const measurement = formD.get('measurement');
-    const recipe = { ingredient, quantity, measurement };
+    const recipe = { ingredient: ingredient, quantity: quantity, measurement: measurement };
     recipeArr.push(recipe);
-
+    displayIngredients();
+    form.reset();
+    console.log(recipeArr);
 });
 
+function displayIngredients() {
+    ingredientList.textContent = '';
+    for (let stuff of recipeArr) {
+        const thing = renderIngredient(stuff);
+        ingredientList.append(thing);
+    }
+}
