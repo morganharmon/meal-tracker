@@ -14,15 +14,18 @@
 
 <body>
     <header>
-        <div class="gutter-right logo">
-            <img src="./assets/big-logo.png" />
-        </div>
     </header>
     <main>
-        <section class="main-section">
+        <section class="ingredients-section">
+            <H2>Create a meal</H2>
             <form id="form">
-                <input name="ingredient" id="ingredient">
-                <input name="quantity" id="quantity">
+                <label>Ingredient: 
+                    <input name="ingredient" id="ingredient">
+                </label>
+                <label>Quantity: 
+                    <input name="quantity" id="quantity">
+                </label>
+                <label>Measure: 
                 <select name="measurement" id="measurement">
                     <option name="cups" id="grams">Cups</option>
                     <option name="grams" id="grams">Grams</option>
@@ -30,11 +33,23 @@
                     <option name="teaspoons" id="teaspoons">Teaspoons</option>
                     <option name="tablespoons" id="tablespoons">Tablespoons</option>
                 </select>
-                <button id="submit">Submit</button>
+                </label>
+                <button id="submit">Add ingredient</button>
             </form>
-            <button id="removeButton">Remove</button>
+            <div>
+            <button id="removeButton">Remove last ingredient</button>
+            </div>
             <ul id="ingredientList"></ul>
-
+        </section>
+        <section class="meal-section">
+            <H2>Meals</H2>
+            <form id="mealForm">
+                <label>Meal name: 
+                    <input name="mealName" id="mealName">
+                    <button id="mealButton">Save meal</button>
+                </label>
+            </form>
+            <ul id="mealList"></ul>
         </section>
     </main>
     <footer>
