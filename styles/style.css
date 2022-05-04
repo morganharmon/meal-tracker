@@ -2,19 +2,19 @@
 body {
     /* feel free to update these css variables for a quick theme */
     
-    --color1: white;
+    /* --color1: white;
     --color2: white;
     --color3: white;
     --color4: white;
-    --color5: white;
+    --color5: white; */
     
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
         
-    /* --color1: hsla(349, 69%, 76%, 1);
+    --color1: hsla(349, 69%, 76%, 1);
     --color2: hsla(207, 67%, 44%, 1);
     --color3: hsla(200, 61%, 56%, 1);
     --color4: hsla(187, 41%, 94%, 1);
-    --color5: hsla(170, 28%, 95%, 1); */
+    --color5: hsla(170, 28%, 95%, 1);
 
     /* --color1: hsla(45, 86%, 83%, 1);
     --color2: hsla(135, 65%, 98%, 1);
@@ -53,9 +53,21 @@ section {
     border: solid 2px var(--color1);
 }
 
+label {
+    margin: 20px;
+}
+
+#submit {
+    margin-right: 20px;
+}
+
+#removeButton {
+    margin-top: 20px;
+}
+
 header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
