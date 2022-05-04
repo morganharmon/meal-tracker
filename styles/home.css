@@ -1,1 +1,11 @@
 /* add home page styles here */
+#mealList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+ul {
+    padding: 20px;
+}

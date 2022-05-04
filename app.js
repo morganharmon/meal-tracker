@@ -31,14 +31,17 @@ function displayIngredients() {
         ingredientList.append(thing);
     }
 }
-function appendIngredients() {
-    ingredientList.textContent = '';
-    mealList.append('--------------');
-    for (let stuff of recipeArr) {
-        const thing = renderIngredient(stuff);
-        mealList.append(thing);
-    }
-}
+
+// function appendIngredients() {
+//     ingredientList.textContent = '';
+//     const li2 = document.createElement('li');
+//     li2.textContent = '--------------';
+//     mealList.append(li2);
+//     for (let stuff of recipeArr) {
+//         const thing = renderIngredient(stuff);
+//         mealList.append(thing);
+//     }
+// }
 
 function resetIngredients() {
     recipeArr = [];
@@ -57,7 +60,6 @@ mealForm.addEventListener('submit', (e) => {
     const ingredientLength = recipeArr.length;
     mealNames.push({ name: mealName, length: ingredientLength });
     renderMeals();
-    appendIngredients();
     resetIngredients();
     mealForm.reset();
     mealNames = [];
@@ -65,9 +67,17 @@ mealForm.addEventListener('submit', (e) => {
 
 function renderMeals() {
     for (let thing of mealNames) {
-        const br = document.createElement('br');
-        mealList.append(br);
+        const ul = document.createElement('ul');
+        mealList.append(ul);
         const li = renderMeal(thing);
-        mealList.append(li);
+        ul.append(li);
+        ingredientList.textContent = '';
+        const li2 = document.createElement('li');
+        li2.textContent = '----------------------';
+        ul.append(li2);
+        for (let stuff of recipeArr) {
+            const thing = renderIngredient(stuff);
+            ul.append(thing);
+        }
     }
 }
