@@ -10,7 +10,6 @@ const mealList = document.getElementById('mealList');
 // let state
 let recipeArr = [];
 let mealNames = [];
-
 // set event listeners 
 
 form.addEventListener('submit', (e) => {
@@ -32,6 +31,14 @@ function displayIngredients() {
         ingredientList.append(thing);
     }
 }
+function appendIngredients() {
+    ingredientList.textContent = '';
+    mealList.append('--------------');
+    for (let stuff of recipeArr) {
+        const thing = renderIngredient(stuff);
+        mealList.append(thing);
+    }
+}
 
 function resetIngredients() {
     recipeArr = [];
@@ -50,13 +57,16 @@ mealForm.addEventListener('submit', (e) => {
     const ingredientLength = recipeArr.length;
     mealNames.push({ name: mealName, length: ingredientLength });
     renderMeals();
+    appendIngredients();
     resetIngredients();
     mealForm.reset();
+    mealNames = [];
 });
 
 function renderMeals() {
-    mealList.textContent = '';
     for (let thing of mealNames) {
+        const br = document.createElement('br');
+        mealList.append(br);
         const li = renderMeal(thing);
         mealList.append(li);
     }
